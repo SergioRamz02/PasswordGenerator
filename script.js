@@ -1,13 +1,13 @@
-const rangeContainer =document.querySelector('.range-container');
+const rangeContainer = document.querySelector('.range-container');
 const inputRange = rangeContainer.querySelector('input[type="range"]');
 const lenghtCounter = rangeContainer.querySelector('h1');
 const generateBtn = document.querySelector('.generator form button');
-const passwordReading =document.querySelector('.password-container h1');
+const passwordReading = document.querySelector('.password-container h1');
 
 //Función para actualizar el tamaño de la contraseña
 const handleChange = () =>{
     lenghtCounter.textContent = inputRange.value;
-}
+};
 
 const generatePassword = (passwordLenght) =>{
     let result = "";
@@ -51,3 +51,19 @@ const printPassword = (e)=>{
 inputRange.addEventListener("input", handleChange);
 generateBtn.addEventListener("click", printPassword);
 
+//Agregando la función de copiar la contraseña en el portapepeles
+const copiarBtn = document.querySelector("#copiarBtn");
+
+const copiarAlPortapapeles = () => {
+    const password = passwordReading.textContent; // Obtener la contraseña generada
+    if (!password || password === "Selecciona al menos una opción") {
+        alert("No hay una contraseña válida para copiar.");
+        return;
+    }
+    navigator.clipboard.writeText(password).then(() => {
+        alert("Contraseña copiada al portapapeles ✅");
+    }).catch(err => console.error("Error al copiar:", err));
+};
+
+// Evento para copiar la contraseña
+copiarBtn.addEventListener("click", copiarAlPortapapeles);
