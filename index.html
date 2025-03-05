@@ -7,6 +7,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="generator">
+    <div class="password-container">
+        <p>Password Generator</p>
+        <h1>Password Generator</h1>
+    </div>
+
+<!--Formulario para generar la contraseña-->
+<form>
+<!--Tamaño de la contraseña-->
+     <label for="input-password-lenght">Largo de la contraseña</label>
+
+<!--Barra de nivel de seguridad de la contraseña-->
+     <div class="range-container">
+         <input type="range" min="1" max="20" id="input-password-lenght" value="8"><br>
+         <h1>8</h1>
+     </div>
+<!--Lista de los elementos de la contraseña-->
+    <div class="options">
+        <label><input type="checkbox" id="uppercase"checked>Incluye letras máyusculas</label><br>
+        <label><input type="checkbox" id="lowercase" checked>Incluye letras minúsculas</label><br>
+        <label><input type="checkbox" id="numbers" checked>Incluye Números</label><br>
+        <label><input type="checkbox" id="symbols" checked>Incluye Símbolos</label><br>
+    </div>
+
+    <!--Butón para generar la contraseña-->
+<button id="generatePassword" type="submit">Generar contraseña</button>
+
+</form>
+
+</div>
     
 
 <!--Enlazando con JavaScript-->
